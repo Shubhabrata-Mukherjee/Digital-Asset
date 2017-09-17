@@ -1,0 +1,99 @@
+<head>
+  <title>VideoDapp</title>
+</head>
+
+<body>
+  <h1>Welcome to Video Tokens Dapp!</h1>
+
+
+  {{> readVidForUser}}
+  {{> addVid}}
+  {{> buyTokens}}
+  {{> validateToken}}
+  {{> readAllVids}}
+  {{> transfertokens}}
+  {{> readAllUsers}}
+ 
+</body>
+
+
+
+<template name="readVidForUser">
+  <h2>Read Video For sender</h2>
+  <input type=string class="address" name="address" id="address">
+  <button>Click Me</button>
+  <p>Video address-{{video}}</p>
+  <p>Title-{{title}}</p>
+  <p>Left supply-{{currentSupply}}</p>
+  <p>Buy Price in Wei-{{buyprice}}</p>
+  <p>Token Quantity-{{token_quantity}}</p>
+  <p>Tokens-{{tokens}}</p>
+  
+</template>
+
+<template name="addVid">
+  <h2>Add New Video To contract</h2>
+  Title<br>
+  <input type=string class="title" name="title" id="title"><br>
+  Supply<br>
+  <input type=string class="supply" name="supply" id="supply"><br>
+  Owner Address<br>
+  <input type=string class="owner" name="owner" id="owner"><br>
+  buyPrice in ether<br>
+  <input type=string class="buyprice" name="buyprice" id="buyprice"><br>
+  
+  <button>Click Me</button>
+  <p>Result data-{{response}}</p>
+</template>
+
+<template name="buyTokens">
+  <h2>Buy Tokens For A vid</h2>
+  video Address<br>
+  <input type=string class="vAddress" name="vAddress" id="vAddress"><br>
+  amount of tokens<br>
+  <input type=number class="amount" name="amount" id="amount"><br>
+  second Account to divide ether payment with<br>
+  <input type=string class="secondAcc" name="secondAcc" id="secondAcc"><br>
+  bool value, if false then payment will divide in two account, true for single account payment<br>
+  <input type=bool class="bool" name="bool" id="bool"><br>
+  <button>Buy</button>
+  <p>Result Data-{{buyTokensResult}}</p>
+  
+</template>
+
+<template name="validateToken">
+  <h2>check accessibility for a video</h2>
+  video address<br>
+  <input type=string class="vidad" name="address" id="vidad"><br>
+  
+  <button>Check Access</button>
+  <p>Result Data-{{validationResult}}</p>
+</template>
+
+<template name="readAllVids">
+  <h2>Read All Videos for sender</h2>
+  <button>get all vids</button>
+  <p>Result Data-{{readAllVidResult}}</p>
+</template>
+
+<template name="transfertokens">
+  <h2>Transfer your tokens to xyz-</h2>
+  new owner's address<br>
+  <input type=string class="newOwner" name="newOwner" id="newOwner"><br>
+  video address<br>
+  <input type=string class="vidadd1" name="vidadd1" id="vidadd1"><br>
+  tokens to transfer(separate token numbers by a comma)<br>
+  <input type=string class="amount" name="tokens" id="tokensToTransfer"><br>
+  second Account to divide ether payment with<br>
+  <input type=string class="secondAcc" name="secondAcc" id="secondAcc"><br>
+  percent of the initial cost that is to be charged for transferring-<br>
+  <input type=string class="percent" name="percent" id="percent"><br>
+  <button>transfer</button>
+  <p>Result Data-{{transferResult}}</p>
+</template>
+
+<template name="readAllUsers">
+  <h2>Read All users for a video</h2>
+  <button>get all users</button>
+  <p>Result Data-{{readAlluserResult}}</p>
+</template>
